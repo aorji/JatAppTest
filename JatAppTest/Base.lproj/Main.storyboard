@@ -142,10 +142,10 @@
                                     <action selector="confirmButtonPressed:" destination="fXc-g6-Vly" eventType="touchUpInside" id="JuA-Vn-XWN"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Error!" translatesAutoresizingMaskIntoConstraints="NO" id="hXL-7W-uYG">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Error!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hXL-7W-uYG">
                                 <rect key="frame" x="16" y="95" width="343" height="33"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>

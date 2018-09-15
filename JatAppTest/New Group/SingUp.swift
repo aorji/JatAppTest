@@ -48,7 +48,6 @@ class SingUp: UIViewController {
             if response.result.isSuccess {
                 print("success request")
                 let resultJSON : JSON = JSON(response.result.value!)
-                print(resultJSON["errors"]["name"].boolValue)
                 print(resultJSON)
                 if resultJSON["success"].boolValue == false {
                     self.updateTextFieldWithError(json : resultJSON)
@@ -62,6 +61,12 @@ class SingUp: UIViewController {
     
     func updateTextFieldWithError(json : JSON) {
         
+        var errorMessage = ""
+        
+        for (_, error) in json["errors"] {
+            errorMessage = errorMessage + "\n" +  String(describing: error["message"])
+        }
+        errorTextField.text = errorMessage
     }
 
 }
