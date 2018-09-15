@@ -48,7 +48,7 @@ class SingUp: UIViewController {
             if response.result.isSuccess {
                 print("success request")
                 let resultJSON : JSON = JSON(response.result.value!)
-                print(resultJSON)
+//                print(resultJSON)
                 if resultJSON["success"].boolValue == false {
                     self.updateTextFieldWithError(json : resultJSON)
                 } else {self.saveToken(json : resultJSON)}

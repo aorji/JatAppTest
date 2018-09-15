@@ -198,7 +198,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="vL7-wb-sDK">
                                 <rect key="frame" x="16" y="286" width="343" height="95"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lIF-LM-2Yq" userLabel="login">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lIF-LM-2Yq" userLabel="login">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -233,6 +233,9 @@
                                 <state key="normal" title="CONFIRM">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirmButtonPressed:" destination="OYq-ha-tMt" eventType="touchUpInside" id="hTs-a8-KGX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -253,6 +256,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fnk-6U-Ro7"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="lIF-LM-2Yq" id="b3E-qo-ATL"/>
+                        <outlet property="password" destination="XRC-oj-MMo" id="K3J-fL-lMG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Wi-Xn-j4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
