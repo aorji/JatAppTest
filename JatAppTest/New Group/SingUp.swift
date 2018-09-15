@@ -51,7 +51,7 @@ class SingUp: UIViewController {
                 print(resultJSON)
                 if resultJSON["success"].boolValue == false {
                     self.updateTextFieldWithError(json : resultJSON)
-                }
+                } else {self.saveToken(json : resultJSON)}
             }
             else {
                 print("Error request")
@@ -69,4 +69,8 @@ class SingUp: UIViewController {
         errorTextField.text = errorMessage
     }
 
+    func saveToken(json : JSON) {
+        let accessToken = json["data"]["access_token"]
+        print(accessToken)
+    }
 }
