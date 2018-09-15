@@ -16,8 +16,11 @@ class LogIn: UIViewController {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var errorTextField: UITextView!
+    
     
     override func viewDidLoad() {
+        errorTextField.text = ""
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -46,13 +49,24 @@ class LogIn: UIViewController {
                 print("success request")
                 let resultJSON : JSON = JSON(response.result.value!)
                 print(resultJSON)
-//                if resultJSON["success"].boolValue == false {
-//                    self.updateTextFieldWithError(json : resultJSON)
-//                } else {self.saveToken(json : resultJSON)}
+                if resultJSON["success"].boolValue == false {
+                    self.updateTextFieldWithError(json : resultJSON)
+                } //else {self.saveToken(json : resultJSON)}
             }
             else {
                 print("Error request")
             }
         }
     }
+    
+    func updateTextFieldWithError(json : JSON) {
+        
+        var errorMessage = ""
+        
+        for (_, error) in json["errors"] {
+            errorMessage = errorMessage + "\n" +  String(describing: error["message"])
+        }
+        errorTextField.text = errorMessage
+    }
+    
 }

@@ -145,7 +145,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Error!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hXL-7W-uYG">
                                 <rect key="frame" x="16" y="95" width="343" height="33"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -237,17 +237,26 @@
                                     <action selector="confirmButtonPressed:" destination="OYq-ha-tMt" eventType="touchUpInside" id="hTs-a8-KGX"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Error" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hd6-za-WPz">
+                                <rect key="frame" x="16" y="95" width="343" height="33"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="DBO-pB-zUT" firstAttribute="top" secondItem="tdb-oS-x2C" secondAttribute="top" id="1Kg-G3-oHA"/>
                             <constraint firstItem="Fnk-6U-Ro7" firstAttribute="trailing" secondItem="Kb7-p3-sVW" secondAttribute="trailing" constant="16" id="Bww-Lv-kBj"/>
                             <constraint firstAttribute="trailing" secondItem="DBO-pB-zUT" secondAttribute="trailing" id="CeY-yc-GA6"/>
+                            <constraint firstItem="hd6-za-WPz" firstAttribute="leading" secondItem="Fnk-6U-Ro7" secondAttribute="leading" constant="16" id="D3u-sJ-1pI"/>
                             <constraint firstItem="DBO-pB-zUT" firstAttribute="leading" secondItem="tdb-oS-x2C" secondAttribute="leading" id="D4h-WW-c8I"/>
                             <constraint firstItem="vL7-wb-sDK" firstAttribute="centerY" secondItem="tdb-oS-x2C" secondAttribute="centerY" id="EzN-kk-2aV"/>
                             <constraint firstItem="Fnk-6U-Ro7" firstAttribute="bottom" secondItem="Kb7-p3-sVW" secondAttribute="bottom" constant="40" id="Kqq-QT-L49"/>
                             <constraint firstAttribute="bottom" secondItem="DBO-pB-zUT" secondAttribute="bottom" id="L5F-jH-gGL"/>
                             <constraint firstItem="qiE-74-Ola" firstAttribute="leading" secondItem="Fnk-6U-Ro7" secondAttribute="leading" constant="15" id="NSc-5i-0nP"/>
+                            <constraint firstItem="Fnk-6U-Ro7" firstAttribute="trailing" secondItem="hd6-za-WPz" secondAttribute="trailing" constant="16" id="SPX-hu-Vbl"/>
+                            <constraint firstItem="hd6-za-WPz" firstAttribute="top" secondItem="Fnk-6U-Ro7" secondAttribute="top" constant="75" id="TqH-nr-6hs"/>
                             <constraint firstItem="Kb7-p3-sVW" firstAttribute="leading" secondItem="Fnk-6U-Ro7" secondAttribute="leading" constant="16" id="Zmc-RA-fkn"/>
                             <constraint firstItem="vL7-wb-sDK" firstAttribute="centerX" secondItem="tdb-oS-x2C" secondAttribute="centerX" id="jOc-0c-mBJ"/>
                             <constraint firstItem="vL7-wb-sDK" firstAttribute="leading" secondItem="tdb-oS-x2C" secondAttribute="leadingMargin" id="wjl-SF-zyf"/>
@@ -258,12 +267,13 @@
                     </view>
                     <connections>
                         <outlet property="email" destination="lIF-LM-2Yq" id="b3E-qo-ATL"/>
+                        <outlet property="errorTextField" destination="hd6-za-WPz" id="lWY-Qn-4n6"/>
                         <outlet property="password" destination="XRC-oj-MMo" id="K3J-fL-lMG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Wi-Xn-j4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-322" y="148"/>
+            <point key="canvasLocation" x="-322.39999999999998" y="147.97601199400302"/>
         </scene>
     </scenes>
     <resources>
