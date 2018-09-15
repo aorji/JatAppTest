@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D015B651ED86776D353C33F /* Pods_JatAppTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7368D019EA0621CE27EBA9F2 /* Pods_JatAppTest.framework */; };
 		81D311C1214D2E6200B201CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D311C0214D2E6200B201CE /* AppDelegate.swift */; };
 		81D311C3214D2E6200B201CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D311C2214D2E6200B201CE /* ViewController.swift */; };
 		81D311C6214D2E6200B201CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D311C4214D2E6200B201CE /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		359D0629BC5AE56BABEA3F78 /* Pods-JatAppTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JatAppTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-JatAppTest/Pods-JatAppTest.release.xcconfig"; sourceTree = "<group>"; };
+		7368D019EA0621CE27EBA9F2 /* Pods_JatAppTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JatAppTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D311BD214D2E6200B201CE /* JatAppTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JatAppTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D311C0214D2E6200B201CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D311C2214D2E6200B201CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		81D311CC214D2E6200B201CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81D311D2214D364A00B201CE /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 		81D311D4214D366A00B201CE /* SingUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUp.swift; sourceTree = "<group>"; };
+		B06DBEF7C451429A4742FFDB /* Pods-JatAppTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JatAppTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JatAppTest/Pods-JatAppTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D015B651ED86776D353C33F /* Pods_JatAppTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		304503BECAB9547CCBB48757 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B06DBEF7C451429A4742FFDB /* Pods-JatAppTest.debug.xcconfig */,
+				359D0629BC5AE56BABEA3F78 /* Pods-JatAppTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		81D311B4214D2E6200B201CE = {
 			isa = PBXGroup;
 			children = (
 				81D311BF214D2E6200B201CE /* JatAppTest */,
 				81D311BE214D2E6200B201CE /* Products */,
+				304503BECAB9547CCBB48757 /* Pods */,
+				D6EE6B1C505853D2E5190620 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +95,14 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		D6EE6B1C505853D2E5190620 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7368D019EA0621CE27EBA9F2 /* Pods_JatAppTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81D311CF214D2E6200B201CE /* Build configuration list for PBXNativeTarget "JatAppTest" */;
 			buildPhases = (
+				07EB0A0313CF095C2A8534CC /* [CP] Check Pods Manifest.lock */,
 				81D311B9214D2E6200B201CE /* Sources */,
 				81D311BA214D2E6200B201CE /* Frameworks */,
 				81D311BB214D2E6200B201CE /* Resources */,
+				C1AE8A4EF0FF7671C1B8B43E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -145,6 +171,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07EB0A0313CF095C2A8534CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JatAppTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1AE8A4EF0FF7671C1B8B43E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JatAppTest/Pods-JatAppTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JatAppTest/Pods-JatAppTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		81D311B9214D2E6200B201CE /* Sources */ = {
@@ -289,6 +356,7 @@
 		};
 		81D311D0214D2E6200B201CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B06DBEF7C451429A4742FFDB /* Pods-JatAppTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +371,7 @@
 		};
 		81D311D1214D2E6200B201CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 359D0629BC5AE56BABEA3F78 /* Pods-JatAppTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
