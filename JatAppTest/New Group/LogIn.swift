@@ -37,34 +37,24 @@ class LogIn: UIViewController {
     
     @IBAction func confirmButtonPressed(_ sender: UIButton) {
         let param : [String : String] = ["email" : email.text!, "password" : password.text!]
-        
         requestData(parameters: param)
     }
     
     func requestData(parameters : [String : String]) {
-        
-        Alamofire.request(url, method: .post, parameters: parameters).responseJSON {
-            response in
-            if response.result.isSuccess {
-                print("success request")
-                let resultJSON : JSON = JSON(response.result.value!)
-                print(resultJSON)
-                if resultJSON["success"].boolValue == false {
-                    self.updateTextFieldWithError(json : resultJSON)
-                } //else {self.saveToken(json : resultJSON)}
-            }
-            else {
-                print("Error request")
+        let alomofireRequest = AlamofireRequest(params : parameters, requestMethod : .post, requestUrlType : "login/")
+        alomofireRequest.requestData { (response) in
+            if response?.success == false {
+                self.updateTextFieldWithError(errors : (response?.errors)!)
             }
         }
     }
     
-    func updateTextFieldWithError(json : JSON) {
+    func updateTextFieldWithError(errors : [Error]) {
         
         var errorMessage = ""
-        
-        for (_, error) in json["errors"] {
-            errorMessage = errorMessage + "\n" +  String(describing: error["message"])
+
+        for message in errors {
+            errorMessage = errorMessage + "\n" +  String(describing: message.message)
         }
         errorTextField.text = errorMessage
     }

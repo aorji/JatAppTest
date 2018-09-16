@@ -37,40 +37,25 @@ class SingUp: UIViewController {
     @IBAction func confirmButtonPressed(_ sender: UIButton) {
         let param : [String : String] = ["name" : username.text!, "email" : email.text!, "password" : password.text!]
         
-        pushData(parameters: param)
-        
+        requestData(parameters: param)
     }
     
-    func pushData(parameters : [String : String]) {
-        
-        Alamofire.request(url, method: .post, parameters: parameters).responseJSON {
-            response in
-            if response.result.isSuccess {
-                print("success request")
-                let resultJSON : JSON = JSON(response.result.value!)
-//                print(resultJSON)
-                if resultJSON["success"].boolValue == false {
-                    self.updateTextFieldWithError(json : resultJSON)
-                } else {self.saveToken(json : resultJSON)}
-            }
-            else {
-                print("Error request")
+    func requestData(parameters : [String : String]) {
+        let alomofireRequest = AlamofireRequest(params : parameters, requestMethod : .post, requestUrlType : "signup/")
+        alomofireRequest.requestData { (response) in
+            if response?.success == false {
+                self.updateTextFieldWithError(errors : (response?.errors)!)
             }
         }
     }
     
-    func updateTextFieldWithError(json : JSON) {
+    func updateTextFieldWithError(errors : [Error]) {
         
         var errorMessage = ""
         
-        for (_, error) in json["errors"] {
-            errorMessage = errorMessage + "\n" +  String(describing: error["message"])
+        for message in errors {
+            errorMessage = errorMessage + "\n" +  String(describing: message.message)
         }
         errorTextField.text = errorMessage
-    }
-
-    func saveToken(json : JSON) {
-        let accessToken = json["data"]["access_token"]
-        print(accessToken)
     }
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1D015B651ED86776D353C33F /* Pods_JatAppTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7368D019EA0621CE27EBA9F2 /* Pods_JatAppTest.framework */; };
+		8177D0BD214E67CD00AC4780 /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177D0BC214E67CD00AC4780 /* AlamofireRequest.swift */; };
+		8177D0C1214E8D7000AC4780 /* JSONParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177D0C0214E8D7000AC4780 /* JSONParsing.swift */; };
 		81D311C1214D2E6200B201CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D311C0214D2E6200B201CE /* AppDelegate.swift */; };
 		81D311C3214D2E6200B201CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D311C2214D2E6200B201CE /* ViewController.swift */; };
 		81D311C6214D2E6200B201CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D311C4214D2E6200B201CE /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* Begin PBXFileReference section */
 		359D0629BC5AE56BABEA3F78 /* Pods-JatAppTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JatAppTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-JatAppTest/Pods-JatAppTest.release.xcconfig"; sourceTree = "<group>"; };
 		7368D019EA0621CE27EBA9F2 /* Pods_JatAppTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JatAppTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8177D0BC214E67CD00AC4780 /* AlamofireRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
+		8177D0C0214E8D7000AC4780 /* JSONParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsing.swift; sourceTree = "<group>"; };
 		81D311BD214D2E6200B201CE /* JatAppTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JatAppTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D311C0214D2E6200B201CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D311C2214D2E6200B201CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,9 +57,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8177D0BB214E679400AC4780 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8177D0BC214E67CD00AC4780 /* AlamofireRequest.swift */,
+				8177D0C0214E8D7000AC4780 /* JSONParsing.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		81D311B4214D2E6200B201CE = {
 			isa = PBXGroup;
 			children = (
+				8177D0BB214E679400AC4780 /* Model */,
 				81D311BF214D2E6200B201CE /* JatAppTest */,
 				81D311BE214D2E6200B201CE /* Products */,
 				304503BECAB9547CCBB48757 /* Pods */,
@@ -218,9 +232,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8177D0C1214E8D7000AC4780 /* JSONParsing.swift in Sources */,
 				81D311C3214D2E6200B201CE /* ViewController.swift in Sources */,
 				81D311D5214D366A00B201CE /* SingUp.swift in Sources */,
 				81D311D3214D364A00B201CE /* LogIn.swift in Sources */,
+				8177D0BD214E67CD00AC4780 /* AlamofireRequest.swift in Sources */,
 				81D311C1214D2E6200B201CE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
