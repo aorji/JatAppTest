@@ -18,6 +18,7 @@ class LogIn: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var errorTextField: UITextView!
     
+//    var userLoginIsAllowed : Bool = false
     
     override func viewDidLoad() {
         errorTextField.text = ""
@@ -46,6 +47,9 @@ class LogIn: UIViewController {
             if response?.success == false {
                 self.updateTextFieldWithError(errors : (response?.errors)!)
             }
+//            else {
+//                userLoginIsAllowed = true
+//            }
         }
     }
     
