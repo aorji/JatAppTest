@@ -11,32 +11,27 @@ import UIKit
 
 
 
-class FinalViewController: UIViewController {
+class FinalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var accessToken : String!
     @IBOutlet weak var tokenLabel: UILabel!
+    @IBOutlet weak var tabelView: UITableView!
+    
+    var accessToken : String!
+    let myText = "here is my text"
+    var result = [Character : Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tokenLabel.text = accessToken
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        result = self.countCharacter(text: myText)
     }
     
     @IBAction func goBackButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
-    //getText
-    let text = "here is my text"
-    
     func countCharacter(text: String) -> [Character:Int]{
         
-        var dictionary : [Character : Int] = [:]
+        var dictionary = [Character : Int]()
         
         for item in text {
             if let _ = dictionary[item] {
@@ -44,11 +39,29 @@ class FinalViewController: UIViewController {
             } else {
                 dictionary[item] = 1
             }
-            text.dropFirst()
         }
-        return (dictionary)
+        return dictionary
     }
     
-    //updateTabelWithAnswer
+    //updateTabelWithAnAnswer
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.result.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath)
+        for (index, value) in result.enumerated() {
+            if index == indexPath.row {
+                var word = ""
+                if value.value == 1 {
+                    word = " time"
+                } else {
+                    word = " times"
+                }
+                cell.textLabel?.text = "'\(value.key)'" + " - " + "\(value.value)" + "\(word)"
+            }
+        }
+        return cell
+    }
     
 }

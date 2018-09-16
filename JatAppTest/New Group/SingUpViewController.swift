@@ -11,8 +11,8 @@ import Alamofire
 import SwiftyJSON
 
 class SingUp: UIViewController {
-
-    let url =  "https://apiecho.cf/api/signup/"
+    
+    var accessToken = ""
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var email: UITextField!
@@ -22,12 +22,6 @@ class SingUp: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         errorTextField.text = ""
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func goBackButtonPressed(_ sender: UIButton) {
@@ -36,19 +30,17 @@ class SingUp: UIViewController {
     
     @IBAction func confirmButtonPressed(_ sender: UIButton) {
         let param : [String : String] = ["name" : username.text!, "email" : email.text!, "password" : password.text!]
-        
-        requestData(parameters: param)
+        getEccessToFinalScreen(parameters: param)
     }
     
-    func requestData(parameters : [String : String]) {
+    func getEccessToFinalScreen(parameters : [String : String]) {
         let alomofireRequest = AlamofireRequest(params : parameters, requestMethod : .post, requestUrlType : "signup/")
-        alomofireRequest.requestData { (response) in
+        alomofireRequest.requestData {(response) in
             if response?.success == false {
                 self.updateTextFieldWithError(errors : (response?.errors)!)
-            }
-            else {
-                let accessToken = response?.data?.accessToken
-                self.errorTextField.text = accessToken
+            } else {
+                self.accessToken = (response?.data?.accessToken)!
+                self.performSegue(withIdentifier: "goToFinalScreen", sender: self)
             }
         }
     }

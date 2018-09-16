@@ -12,25 +12,15 @@ import SwiftyJSON
 
 class LogIn: UIViewController {
 
-    let url =  "https://apiecho.cf/api/login/"
     var accessToken = ""
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var errorTextField: UITextView!
     
-//    var userLoginIsAllowed : Bool = false
-    
     override func viewDidLoad() {
-        errorTextField.text = ""
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        errorTextField.text = ""
     }
     
     @IBAction func goBackButtonPressed(_ sender: UIButton) {
@@ -60,10 +50,11 @@ class LogIn: UIViewController {
             destinationVC.accessToken = accessToken
         }
     }
+    
     func updateTextFieldWithError(errors : [Error]) {
         
         var errorMessage = ""
-
+        
         for message in errors {
             errorMessage = errorMessage + "\n" +  String(describing: message.message)
         }
