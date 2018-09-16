@@ -13,6 +13,7 @@ import SwiftyJSON
 class LogIn: UIViewController {
 
     let url =  "https://apiecho.cf/api/login/"
+    var accessToken = ""
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -38,21 +39,27 @@ class LogIn: UIViewController {
     
     @IBAction func confirmButtonPressed(_ sender: UIButton) {
         let param : [String : String] = ["email" : email.text!, "password" : password.text!]
-        requestData(parameters: param)
+        getEccessToFinalScreen(parameters: param)
     }
     
-    func requestData(parameters : [String : String]) {
+    func getEccessToFinalScreen(parameters : [String : String]) {
         let alomofireRequest = AlamofireRequest(params : parameters, requestMethod : .post, requestUrlType : "login/")
-        alomofireRequest.requestData { (response) in
+        alomofireRequest.requestData {(response) in
             if response?.success == false {
                 self.updateTextFieldWithError(errors : (response?.errors)!)
+            } else {
+                self.accessToken = (response?.data?.accessToken)!
+                self.performSegue(withIdentifier: "goToFinalScreen", sender: self)
             }
-//            else {
-//                userLoginIsAllowed = true
-//            }
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToFinalScreen" {
+            let destinationVC = segue.destination as! FinalViewController
+            destinationVC.accessToken = accessToken
+        }
+    }
     func updateTextFieldWithError(errors : [Error]) {
         
         var errorMessage = ""

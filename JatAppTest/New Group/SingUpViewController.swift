@@ -46,6 +46,10 @@ class SingUp: UIViewController {
             if response?.success == false {
                 self.updateTextFieldWithError(errors : (response?.errors)!)
             }
+            else {
+                let accessToken = response?.data?.accessToken
+                self.errorTextField.text = accessToken
+            }
         }
     }
     
