@@ -16,10 +16,10 @@ class AlamofireRequest {
     let method : HTTPMethod
     let url : String
 
-    init(params : [String : String], requestMethod : HTTPMethod, requestUrlType : String){
+    init(params : [String : String], requestedMethod : HTTPMethod, requestedUrlType : String){
         parameters = params
-        method = requestMethod
-        url = "https://apiecho.cf/api/" + "\(requestUrlType)"
+        method = requestedMethod
+        url = "https://apiecho.cf/api/" + "\(requestedUrlType)"
     }
 
     func requestData(result : @escaping (Response?) -> Void){

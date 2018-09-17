@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class LogIn: UIViewController {
+class LogInViewController: UIViewController {
 
     var accessToken = ""
     
@@ -33,7 +33,7 @@ class LogIn: UIViewController {
     }
     
     func getEccessToFinalScreen(parameters : [String : String]) {
-        let alomofireRequest = AlamofireRequest(params : parameters, requestMethod : .post, requestUrlType : "login/")
+        let alomofireRequest = AlamofireRequest(params : parameters, requestedMethod : .post, requestedUrlType : "login/")
         alomofireRequest.requestData {(response) in
             if response?.success == false {
                 self.updateTextFieldWithError(errors : (response?.errors)!)

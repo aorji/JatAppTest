@@ -10,26 +10,32 @@ import UIKit
 
 
 
+struct CharacterQuantityStruct {
+    let item : Character
+    let quantity : Int
+}
 
 class FinalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var tokenLabel: UILabel!
     @IBOutlet weak var tabelView: UITableView!
     
     var accessToken : String!
-    let myText = "here is my text"
-    var result = [Character : Int]()
+    var myText = "hello"
+    var characterQuantityArray = [CharacterQuantityStruct]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        result = self.countCharacter(text: myText)
+        
+        //create request with token, get text
+        self.countCharacter(text: myText)
     }
     
     @IBAction func goBackButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     
-    func countCharacter(text: String) -> [Character:Int]{
+    //Count occurrence of each character (printable/unprintable) in the text
+    func countCharacter(text: String){
         
         var dictionary = [Character : Int]()
         
@@ -40,27 +46,28 @@ class FinalViewController: UIViewController, UITableViewDataSource, UITableViewD
                 dictionary[item] = 1
             }
         }
-        return dictionary
+       castDictionaryToArray(dictionary: dictionary)
     }
     
-    //updateTabelWithAnAnswer
+    
+    func castDictionaryToArray(dictionary :  [Character : Int]){
+        for (_, value) in dictionary.enumerated() {
+            characterQuantityArray.append(CharacterQuantityStruct(item: value.key, quantity: value.value))
+        }
+    }
+    
+    //Display results using UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.result.count
+        return characterQuantityArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath)
-        for (index, value) in result.enumerated() {
-            if index == indexPath.row {
-                var word = ""
-                if value.value == 1 {
-                    word = " time"
-                } else {
-                    word = " times"
-                }
-                cell.textLabel?.text = "'\(value.key)'" + " - " + "\(value.value)" + "\(word)"
-            }
+        var word = "times"
+        if characterQuantityArray[indexPath.row].quantity == 1 {
+            word = "time"
         }
+        cell.textLabel?.text = "\(characterQuantityArray[indexPath.row].item)"  + " - " + "\(characterQuantityArray[indexPath.row].quantity)" + "\(word)"
         return cell
     }
     

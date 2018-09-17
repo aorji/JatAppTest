@@ -92,7 +92,7 @@
 				8177D0BB214E679400AC4780 /* Model */,
 				81D311C0214D2E6200B201CE /* AppDelegate.swift */,
 				81D311D6214D367400B201CE /* Controller */,
-				81D311C4214D2E6200B201CE /* Main.storyboard */,
+				81D745FA214FB47D00630496 /* View */,
 				81D311C7214D2E6200B201CE /* Assets.xcassets */,
 				81D311C9214D2E6200B201CE /* LaunchScreen.storyboard */,
 				81D311CC214D2E6200B201CE /* Info.plist */,
@@ -110,6 +110,14 @@
 			);
 			name = Controller;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		81D745FA214FB47D00630496 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				81D311C4214D2E6200B201CE /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D6EE6B1C505853D2E5190620 /* Frameworks */ = {

@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class SingUp: UIViewController {
+class SingUpViewController: UIViewController {
     
     var accessToken = ""
     
@@ -34,7 +34,7 @@ class SingUp: UIViewController {
     }
     
     func getEccessToFinalScreen(parameters : [String : String]) {
-        let alomofireRequest = AlamofireRequest(params : parameters, requestMethod : .post, requestUrlType : "signup/")
+        let alomofireRequest = AlamofireRequest(params : parameters, requestedMethod : .post, requestedUrlType : "signup/")
         alomofireRequest.requestData {(response) in
             if response?.success == false {
                 self.updateTextFieldWithError(errors : (response?.errors)!)

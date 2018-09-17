@@ -55,7 +55,7 @@
                                 </subviews>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hello" translatesAutoresizingMaskIntoConstraints="NO" id="sEp-9G-TcN">
-                                <rect key="frame" x="67" y="269.5" width="240" height="128"/>
+                                <rect key="frame" x="67.5" y="269.5" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="cAd-Ih-DuY"/>
                                     <constraint firstAttribute="width" constant="240" id="hOz-O1-0l0"/>
@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="-1103" y="-274"/>
         </scene>
-        <!--Sing Up-->
+        <!--Sing Up View Controller-->
         <scene sceneID="KiJ-2Z-qid">
             <objects>
-                <viewController id="fXc-g6-Vly" customClass="SingUp" customModule="JatAppTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fXc-g6-Vly" customClass="SingUpViewController" customModule="JatAppTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rkb-n8-BzV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,7 +94,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="f8z-be-P4g">
                                 <rect key="frame" x="16" y="258.5" width="343" height="150"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" background="password" translatesAutoresizingMaskIntoConstraints="NO" id="425-kl-DMs" userLabel="login">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="425-kl-DMs" userLabel="login">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="YMG-ca-KAR"/>
@@ -103,7 +103,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" background="password" translatesAutoresizingMaskIntoConstraints="NO" id="a4X-zC-YAH" userLabel="login">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4X-zC-YAH" userLabel="login">
                                         <rect key="frame" x="0.0" y="55" width="343" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="LEN-q6-Tk6"/>
@@ -116,7 +116,7 @@
                                         <rect key="frame" x="0.0" y="110" width="343" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -184,10 +184,10 @@
             </objects>
             <point key="canvasLocation" x="-322" y="-531"/>
         </scene>
-        <!--Log In-->
+        <!--Log In View Controller-->
         <scene sceneID="UVl-hq-9Sz">
             <objects>
-                <viewController id="OYq-ha-tMt" customClass="LogIn" customModule="JatAppTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OYq-ha-tMt" customClass="LogInViewController" customModule="JatAppTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tdb-oS-x2C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,7 +211,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -303,7 +303,7 @@
                                 <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" textLabel="uYO-KJ-Gq9" style="IBUITableViewCellStyleDefault" id="vG9-gU-bHo">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" textLabel="uYO-KJ-Gq9" style="IBUITableViewCellStyleDefault" id="vG9-gU-bHo">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vG9-gU-bHo" id="Oga-Xb-IRz">
@@ -355,6 +355,5 @@
         <image name="background" width="626" height="626"/>
         <image name="goBack" width="603" height="606"/>
         <image name="hello" width="512" height="512"/>
-        <image name="password" width="16" height="16"/>
     </resources>
 </document>
