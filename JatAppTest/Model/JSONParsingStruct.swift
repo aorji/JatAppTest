@@ -33,3 +33,4 @@ struct User: Codable {
 struct Error: Codable {
     let message: String
 }
+

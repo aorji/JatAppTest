@@ -8,9 +8,8 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
-class AlamofireRequest {
+class AlamofireRequestWithParameters {
 
     let parameters : [String : String]
     let method : HTTPMethod
@@ -22,7 +21,7 @@ class AlamofireRequest {
         url = "https://apiecho.cf/api/" + "\(requestedUrlType)"
     }
 
-    func requestData(result : @escaping (Response?) -> Void){
+    func requestDataWithParameters(result : @escaping (Response?) -> Void){
         Alamofire.request(url, method: method, parameters: parameters).responseJSON {
             response in
             do {
@@ -33,6 +32,6 @@ class AlamofireRequest {
             catch let error {print(error)}
         }
     }
-
+   
 }
 

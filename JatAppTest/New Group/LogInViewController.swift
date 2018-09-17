@@ -33,8 +33,8 @@ class LogInViewController: UIViewController {
     }
     
     func getEccessToFinalScreen(parameters : [String : String]) {
-        let alomofireRequest = AlamofireRequest(params : parameters, requestedMethod : .post, requestedUrlType : "login/")
-        alomofireRequest.requestData {(response) in
+        let alomofireRequest = AlamofireRequestWithParameters (params : parameters, requestedMethod : .post, requestedUrlType : "login/")
+        alomofireRequest.requestDataWithParameters {(response) in
             if response?.success == false {
                 self.updateTextFieldWithError(errors : (response?.errors)!)
             } else {

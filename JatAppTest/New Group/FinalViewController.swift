@@ -7,8 +7,7 @@
 //
 
 import UIKit
-
-
+import Alamofire
 
 struct CharacterQuantityStruct {
     let item : Character
@@ -27,13 +26,20 @@ class FinalViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.viewDidLoad()
         
         //create request with token, get text
+        
+        let headers: HTTPHeaders = [
+            "Authorization" : "Bearer " + String(accessToken)]
+        Alamofire.request ("https://apiecho.cf/api/get/text/", headers: headers)
+            .responseJSON { response in
+                print(response)
+        }
         self.countCharacter(text: myText)
     }
     
     @IBAction func goBackButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     //Count occurrence of each character (printable/unprintable) in the text
     func countCharacter(text: String){
         

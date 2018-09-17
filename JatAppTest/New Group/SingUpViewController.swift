@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 
 class SingUpViewController: UIViewController {
     
@@ -34,8 +33,8 @@ class SingUpViewController: UIViewController {
     }
     
     func getEccessToFinalScreen(parameters : [String : String]) {
-        let alomofireRequest = AlamofireRequest(params : parameters, requestedMethod : .post, requestedUrlType : "signup/")
-        alomofireRequest.requestData {(response) in
+        let alomofireRequest = AlamofireRequestWithParameters (params : parameters, requestedMethod : .post, requestedUrlType : "signup/")
+        alomofireRequest.requestDataWithParameters { (response) in
             if response?.success == false {
                 self.updateTextFieldWithError(errors : (response?.errors)!)
             } else {
