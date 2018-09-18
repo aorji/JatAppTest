@@ -25,25 +25,17 @@ class FinalViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //create request with token, get text
-        
         let headers: HTTPHeaders = [
             "Authorization" : "Bearer " + accessToken
         ]
-        Alamofire.request ("https://apiecho.cf/api/get/text/", method: .get, headers: headers)
-            .responseJSON { response in
-                do {
-                    let responseData = response.data
-                    let responseDataValue = try JSONDecoder().decode(ResponseWithToken.self, from: responseData!)
-                    if responseDataValue.success == false {
-                       print(responseDataValue.errors) // A ТУТ СЛОВАРЬ, А НЕ СТРОКА, ШО БУДЕМ ДЕЛАТЬ?
-                    } else {
-//                        print(responseDataValue.data)
-                        self.countCharacter(text: responseDataValue.data)
-                        self.tableView.reloadData()
-                    }
-                }
-                catch let error {print(error)}
+        let alomofireRequest = AlamofireRequest (requestedMethod : .post, requestedUrlType : "get/text/", headers: headers)
+        alomofireRequest.requestDataWithHeader {(response) in
+            if response?.success == false {
+                print("responsw with headers: error") // A ТУТ СЛОВАРЬ, А НЕ СТРОКА, ШО БУДЕМ ДЕЛАТЬ?
+            } else {
+                self.countCharacter(text: (response?.data)!)
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -83,7 +75,7 @@ class FinalViewController: UIViewController, UITableViewDataSource, UITableViewD
         if characterQuantityArray[indexPath.row].quantity == 1 {
             word = " time"
         }
-        cell.textLabel?.text = "\(characterQuantityArray[indexPath.row].item)"  + " - " + "\(characterQuantityArray[indexPath.row].quantity)" + "\(word)"
+        cell.textLabel?.text = "'\(characterQuantityArray[indexPath.row].item)'"  + " - " + "\(characterQuantityArray[indexPath.row].quantity)" + "\(word)"
         return cell
     }
     

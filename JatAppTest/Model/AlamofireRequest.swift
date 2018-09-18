@@ -9,16 +9,22 @@
 import Foundation
 import Alamofire
 
-class AlamofireRequestWithParameters {
+class AlamofireRequest {
 
     let parameters : [String : String]
     let method : HTTPMethod
     let url : String
+    let headers : HTTPHeaders
 
-    init(params : [String : String], requestedMethod : HTTPMethod, requestedUrlType : String){
-        parameters = params
+    init(params : [String : String]? = nil, requestedMethod : HTTPMethod, requestedUrlType : String, headers: HTTPHeaders? = nil){
+        if let isparams = params {
+            self.parameters = isparams
+        } else {self.parameters = [:]}
         method = requestedMethod
         url = "https://apiecho.cf/api/" + "\(requestedUrlType)"
+        if let isheaders = headers {
+            self.headers = isheaders
+        } else {self.headers = [:]}
     }
 
     func requestDataWithParameters(result : @escaping (ResponseWithParameters?) -> Void){
@@ -33,5 +39,16 @@ class AlamofireRequestWithParameters {
         }
     }
    
+    func requestDataWithHeader(result : @escaping (ResponseWithToken?) -> Void){
+        Alamofire.request (url, method: .get, headers: headers)
+            .responseJSON { response in
+                do {
+                    let responseData = response.data
+                    let responseDataValue = try JSONDecoder().decode(ResponseWithToken.self, from: responseData!)
+                    result(responseDataValue)
+                }
+                catch let error {print(error)}
+        }
+    }
 }
 

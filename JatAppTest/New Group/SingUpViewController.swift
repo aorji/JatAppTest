@@ -33,7 +33,7 @@ class SingUpViewController: UIViewController {
     }
     
     func getEccessToFinalScreen(parameters : [String : String]) {
-        let alomofireRequest = AlamofireRequestWithParameters (params : parameters, requestedMethod : .post, requestedUrlType : "signup/")
+        let alomofireRequest = AlamofireRequest (params : parameters, requestedMethod : .post, requestedUrlType : "signup/")
         alomofireRequest.requestDataWithParameters { (response) in
             if response?.success == false {
                 self.errorTextField.text = updateTextFieldWithError(errors : (response?.errors)!)
@@ -47,9 +47,7 @@ class SingUpViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFinalScreenFromSignUp" {
             let destinationVC = segue.destination as! FinalViewController
-            print(1, accessToken)
             destinationVC.accessToken = accessToken
-            print(2, destinationVC.accessToken)
         }
     }
 }
