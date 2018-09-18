@@ -36,21 +36,20 @@ class SingUpViewController: UIViewController {
         let alomofireRequest = AlamofireRequestWithParameters (params : parameters, requestedMethod : .post, requestedUrlType : "signup/")
         alomofireRequest.requestDataWithParameters { (response) in
             if response?.success == false {
-                self.updateTextFieldWithError(errors : (response?.errors)!)
+                self.errorTextField.text = updateTextFieldWithError(errors : (response?.errors)!)
             } else {
                 self.accessToken = (response?.data?.accessToken)!
-                self.performSegue(withIdentifier: "goToFinalScreen", sender: self)
+                self.performSegue(withIdentifier: "goToFinalScreenFromSignUp", sender: self)
             }
         }
     }
     
-    func updateTextFieldWithError(errors : [Error]) {
-        
-        var errorMessage = ""
-        
-        for message in errors {
-            errorMessage = errorMessage + "\n" +  String(describing: message.message)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToFinalScreenFromSignUp" {
+            let destinationVC = segue.destination as! FinalViewController
+            print(1, accessToken)
+            destinationVC.accessToken = accessToken
+            print(2, destinationVC.accessToken)
         }
-        errorTextField.text = errorMessage
     }
 }

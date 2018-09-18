@@ -36,7 +36,7 @@ class LogInViewController: UIViewController {
         let alomofireRequest = AlamofireRequestWithParameters (params : parameters, requestedMethod : .post, requestedUrlType : "login/")
         alomofireRequest.requestDataWithParameters {(response) in
             if response?.success == false {
-                self.updateTextFieldWithError(errors : (response?.errors)!)
+                self.errorTextField.text = updateTextFieldWithError(errors : (response?.errors)!)
             } else {
                 self.accessToken = (response?.data?.accessToken)!
                 self.performSegue(withIdentifier: "goToFinalScreen", sender: self)
@@ -49,16 +49,5 @@ class LogInViewController: UIViewController {
             let destinationVC = segue.destination as! FinalViewController
             destinationVC.accessToken = accessToken
         }
-    }
-    
-    func updateTextFieldWithError(errors : [Error]) {
-        
-        var errorMessage = ""
-        
-        for message in errors {
-            errorMessage = errorMessage + "\n" +  String(describing: message.message)
-        }
-        errorTextField.text = errorMessage
-    }
-    
+    }    
 }

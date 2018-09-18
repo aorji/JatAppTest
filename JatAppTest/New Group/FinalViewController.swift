@@ -16,10 +16,10 @@ struct CharacterQuantityStruct {
 
 class FinalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var tabelView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     var accessToken : String!
-    var myText = "hello"
+    var textFromRequest = "hh"
     var characterQuantityArray = [CharacterQuantityStruct]()
     
     override func viewDidLoad() {
@@ -28,12 +28,23 @@ class FinalViewController: UIViewController, UITableViewDataSource, UITableViewD
         //create request with token, get text
         
         let headers: HTTPHeaders = [
-            "Authorization" : "Bearer " + String(accessToken)]
-        Alamofire.request ("https://apiecho.cf/api/get/text/", headers: headers)
+            "Authorization" : "Bearer " + accessToken
+        ]
+        Alamofire.request ("https://apiecho.cf/api/get/text/", method: .get, headers: headers)
             .responseJSON { response in
-                print(response)
+                do {
+                    let responseData = response.data
+                    let responseDataValue = try JSONDecoder().decode(ResponseWithToken.self, from: responseData!)
+                    if responseDataValue.success == false {
+                       print(responseDataValue.errors) // A ТУТ СЛОВАРЬ, А НЕ СТРОКА, ШО БУДЕМ ДЕЛАТЬ?
+                    } else {
+//                        print(responseDataValue.data)
+                        self.countCharacter(text: responseDataValue.data)
+                        self.tableView.reloadData()
+                    }
+                }
+                catch let error {print(error)}
         }
-        self.countCharacter(text: myText)
     }
     
     @IBAction func goBackButtonPressed(_ sender: UIButton) {
@@ -42,7 +53,6 @@ class FinalViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     //Count occurrence of each character (printable/unprintable) in the text
     func countCharacter(text: String){
-        
         var dictionary = [Character : Int]()
         
         for item in text {
@@ -69,9 +79,9 @@ class FinalViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath)
-        var word = "times"
+        var word = " times"
         if characterQuantityArray[indexPath.row].quantity == 1 {
-            word = "time"
+            word = " time"
         }
         cell.textLabel?.text = "\(characterQuantityArray[indexPath.row].item)"  + " - " + "\(characterQuantityArray[indexPath.row].quantity)" + "\(word)"
         return cell

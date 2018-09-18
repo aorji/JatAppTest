@@ -178,6 +178,7 @@
                         <outlet property="errorTextField" destination="hXL-7W-uYG" id="gEF-tQ-HZo"/>
                         <outlet property="password" destination="JqZ-Np-A5O" id="tX0-xD-JSQ"/>
                         <outlet property="username" destination="425-kl-DMs" id="2aE-hg-TAv"/>
+                        <segue destination="fI4-cE-t3B" kind="show" identifier="goToFinalScreenFromSignUp" id="zWF-ar-UL8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OE-PQ-hMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,7 +304,7 @@
                                 <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" textLabel="uYO-KJ-Gq9" style="IBUITableViewCellStyleDefault" id="vG9-gU-bHo">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" textLabel="uYO-KJ-Gq9" style="IBUITableViewCellStyleDefault" id="vG9-gU-bHo">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vG9-gU-bHo" id="Oga-Xb-IRz">
@@ -343,7 +344,7 @@
                         <viewLayoutGuide key="safeArea" id="suZ-qL-Pti"/>
                     </view>
                     <connections>
-                        <outlet property="tabelView" destination="noI-bO-wHH" id="FaU-Mp-KVA"/>
+                        <outlet property="tableView" destination="noI-bO-wHH" id="FaU-Mp-KVA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3S-gu-BDT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -356,4 +357,7 @@
         <image name="goBack" width="603" height="606"/>
         <image name="hello" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zWF-ar-UL8"/>
+    </inferredMetricsTieBreakers>
 </document>

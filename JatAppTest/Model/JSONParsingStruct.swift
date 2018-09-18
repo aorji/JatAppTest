@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Response: Codable {
-    let errors: [Error]
+struct ResponseWithParameters: Codable {
+    let errors: [ErrorWithParameters]
     let data: User?
     let success: Bool
 }
@@ -30,7 +30,27 @@ struct User: Codable {
     }
 }
 
-struct Error: Codable {
+struct ErrorWithParameters: Codable {
     let message: String
 }
 
+struct ResponseWithToken: Codable {
+    let success: Bool
+    let data: String
+    let errors: [ErrorWithToken]
+}
+
+struct ErrorWithToken: Codable {
+    let name, message: String
+    let code, status: Int
+}
+
+func updateTextFieldWithError(errors : [ErrorWithParameters]) -> String{
+    
+    var errorMessage = ""
+    
+    for message in errors {
+        errorMessage = errorMessage + "\n" +  String(describing: message.message)
+    }
+    return errorMessage
+}
