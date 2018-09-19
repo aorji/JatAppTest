@@ -10,8 +10,6 @@ import Foundation
 
 //Count occurrence of each character (printable/unprintable) in the text
 
-var characterQuantityArray = [CharacterQuantity]()
-
 func countCharacter(text: String) -> [CharacterQuantity] {
     var dictionary = [Character : Int]()
     
@@ -27,7 +25,7 @@ func countCharacter(text: String) -> [CharacterQuantity] {
 
 func castDictionaryToArray(dictionary :  [Character : Int]) -> [CharacterQuantity]{
     
-    characterQuantityArray.removeAll()
+    var characterQuantityArray = [CharacterQuantity]()
     
     for (_, value) in dictionary.enumerated() {
         characterQuantityArray.append(CharacterQuantity(item: value.key, quantity: value.value))
