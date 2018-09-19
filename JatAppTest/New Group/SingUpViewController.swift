@@ -34,12 +34,12 @@ class SingUpViewController: UIViewController {
     
     func getAccessToFinalScreen(parameters : [String : String]) {
         let alomofireRequest = AlamofireRequest (params : parameters, requestedMethod : .post, requestedUrlType : "signup/")
-        alomofireRequest.requestDataWithParameters { (response) in
+        alomofireRequest.requestDataWithParameters { [weak self] (response) in
             if response?.success == false {
-                self.errorTextField.text = updateTextFieldWithError(errors : (response?.errors)!)
+                self?.errorTextField.text = updateTextFieldWithError(errors : (response?.errors)!)
             } else {
-                self.accessToken = (response?.data?.accessToken)!
-                self.performSegue(withIdentifier: "goToFinalScreenFromSignUp", sender: self)
+                self?.accessToken = (response?.data?.accessToken)!
+                self?.performSegue(withIdentifier: "goToFinalScreenFromSignUp", sender: self)
             }
         }
     }

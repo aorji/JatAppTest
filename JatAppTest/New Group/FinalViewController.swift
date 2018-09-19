@@ -28,10 +28,10 @@ class FinalViewController: UIViewController, UITableViewDataSource, UITableViewD
             "Authorization" : "Bearer " + accessToken
         ]
         let alomofireRequest = AlamofireRequest (requestedMethod : .post, requestedUrlType : "get/text/", headers: headers)
-        alomofireRequest.requestDataWithHeader {(response) in
+        alomofireRequest.requestDataWithHeader {[weak self] (response) in
             if response?.success == true {
-                self.characterQuantityArray = countCharacter(text: (response?.data)!)
-                self.tableView.reloadData()
+                self?.characterQuantityArray = countCharacter(text: (response?.data)!)
+                self?.tableView.reloadData()
             }
         }
     }
