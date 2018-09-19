@@ -24,16 +24,13 @@ class FinalViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(accessToken)
         let headers: HTTPHeaders = [
             "Authorization" : "Bearer " + accessToken
         ]
         let alomofireRequest = AlamofireRequest (requestedMethod : .post, requestedUrlType : "get/text/", headers: headers)
         alomofireRequest.requestDataWithHeader {(response) in
             if response?.success == true {
-//                print((response?.data)!)
                 self.characterQuantityArray = countCharacter(text: (response?.data)!)
-                print("array === ", self.characterQuantityArray, self.characterQuantityArray.count)
                 self.tableView.reloadData()
             }
         }
