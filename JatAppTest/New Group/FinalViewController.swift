@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-struct CharacterQuantityStruct {
+struct CharacterQuantity {
     let item : Character
     let quantity : Int
 }
@@ -20,18 +20,20 @@ class FinalViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var accessToken : String!
     var textFromRequest = ""
-    var characterQuantityArray = [CharacterQuantityStruct]()
+    var characterQuantityArray = [CharacterQuantity]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(accessToken)
+//        print(accessToken)
         let headers: HTTPHeaders = [
             "Authorization" : "Bearer " + accessToken
         ]
         let alomofireRequest = AlamofireRequest (requestedMethod : .post, requestedUrlType : "get/text/", headers: headers)
         alomofireRequest.requestDataWithHeader {(response) in
             if response?.success == true {
-                self.countCharacter(text: (response?.data)!)
+//                print((response?.data)!)
+                self.characterQuantityArray = countCharacter(text: (response?.data)!)
+                print("array === ", self.characterQuantityArray, self.characterQuantityArray.count)
                 self.tableView.reloadData()
             }
         }
@@ -41,27 +43,6 @@ class FinalViewController: UIViewController, UITableViewDataSource, UITableViewD
         dismiss(animated: true, completion: nil)
     }
 
-    //Count occurrence of each character (printable/unprintable) in the text
-    func countCharacter(text: String){
-        var dictionary = [Character : Int]()
-        
-        for item in text {
-            if let _ = dictionary[item] {
-                dictionary[item]! += 1
-            } else {
-                dictionary[item] = 1
-            }
-        }
-       castDictionaryToArray(dictionary: dictionary)
-    }
-    
-    
-    func castDictionaryToArray(dictionary :  [Character : Int]){
-        for (_, value) in dictionary.enumerated() {
-            characterQuantityArray.append(CharacterQuantityStruct(item: value.key, quantity: value.value))
-        }
-    }
-    
     //Display results using UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return characterQuantityArray.count

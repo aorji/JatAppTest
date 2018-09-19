@@ -11,8 +11,8 @@
 		8177D0BD214E67CD00AC4780 /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177D0BC214E67CD00AC4780 /* AlamofireRequest.swift */; };
 		8177D0C1214E8D7000AC4780 /* JSONParsingStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177D0C0214E8D7000AC4780 /* JSONParsingStruct.swift */; };
 		8177D0C3214EB22900AC4780 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177D0C2214EB22900AC4780 /* FinalViewController.swift */; };
+		81B5E7A02152BEBD00847BD6 /* CharacterQuantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B5E79F2152BEBD00847BD6 /* CharacterQuantity.swift */; };
 		81D311C1214D2E6200B201CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D311C0214D2E6200B201CE /* AppDelegate.swift */; };
-		81D311C3214D2E6200B201CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D311C2214D2E6200B201CE /* ViewController.swift */; };
 		81D311C6214D2E6200B201CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D311C4214D2E6200B201CE /* Main.storyboard */; };
 		81D311C8214D2E6200B201CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81D311C7214D2E6200B201CE /* Assets.xcassets */; };
 		81D311CB214D2E6200B201CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D311C9214D2E6200B201CE /* LaunchScreen.storyboard */; };
@@ -26,9 +26,9 @@
 		8177D0BC214E67CD00AC4780 /* AlamofireRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
 		8177D0C0214E8D7000AC4780 /* JSONParsingStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsingStruct.swift; sourceTree = "<group>"; };
 		8177D0C2214EB22900AC4780 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
+		81B5E79F2152BEBD00847BD6 /* CharacterQuantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterQuantity.swift; sourceTree = "<group>"; };
 		81D311BD214D2E6200B201CE /* JatAppTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JatAppTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D311C0214D2E6200B201CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		81D311C2214D2E6200B201CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		81D311C5214D2E6200B201CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81D311C7214D2E6200B201CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81D311CA214D2E6200B201CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +62,7 @@
 		8177D0BB214E679400AC4780 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				81B5E79F2152BEBD00847BD6 /* CharacterQuantity.swift */,
 				8177D0BC214E67CD00AC4780 /* AlamofireRequest.swift */,
 				8177D0C0214E8D7000AC4780 /* JSONParsingStruct.swift */,
 			);
@@ -103,7 +104,6 @@
 		81D311D6214D367400B201CE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				81D311C2214D2E6200B201CE /* ViewController.swift */,
 				81D311D2214D364A00B201CE /* LogInViewController.swift */,
 				81D311D4214D366A00B201CE /* SingUpViewController.swift */,
 				8177D0C2214EB22900AC4780 /* FinalViewController.swift */,
@@ -245,10 +245,10 @@
 			files = (
 				8177D0C1214E8D7000AC4780 /* JSONParsingStruct.swift in Sources */,
 				8177D0C3214EB22900AC4780 /* FinalViewController.swift in Sources */,
-				81D311C3214D2E6200B201CE /* ViewController.swift in Sources */,
 				81D311D5214D366A00B201CE /* SingUpViewController.swift in Sources */,
 				81D311D3214D364A00B201CE /* LogInViewController.swift in Sources */,
 				8177D0BD214E67CD00AC4780 /* AlamofireRequest.swift in Sources */,
+				81B5E7A02152BEBD00847BD6 /* CharacterQuantity.swift in Sources */,
 				81D311C1214D2E6200B201CE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

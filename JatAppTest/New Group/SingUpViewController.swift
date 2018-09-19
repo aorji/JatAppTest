@@ -29,10 +29,10 @@ class SingUpViewController: UIViewController {
     
     @IBAction func confirmButtonPressed(_ sender: UIButton) {
         let param : [String : String] = ["name" : username.text!, "email" : email.text!, "password" : password.text!]
-        getEccessToFinalScreen(parameters: param)
+        getAccessToFinalScreen(parameters: param)
     }
     
-    func getEccessToFinalScreen(parameters : [String : String]) {
+    func getAccessToFinalScreen(parameters : [String : String]) {
         let alomofireRequest = AlamofireRequest (params : parameters, requestedMethod : .post, requestedUrlType : "signup/")
         alomofireRequest.requestDataWithParameters { (response) in
             if response?.success == false {
@@ -46,7 +46,9 @@ class SingUpViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFinalScreenFromSignUp" {
-            let destinationVC = segue.destination as! FinalViewController
+            guard let destinationVC = segue.destination as? FinalViewController else {
+                return
+            }
             destinationVC.accessToken = accessToken
         }
     }
