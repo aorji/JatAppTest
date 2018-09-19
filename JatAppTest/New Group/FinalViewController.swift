@@ -19,20 +19,18 @@ class FinalViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     var accessToken : String!
-    var textFromRequest = "hh"
+    var textFromRequest = ""
     var characterQuantityArray = [CharacterQuantityStruct]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(accessToken)
         let headers: HTTPHeaders = [
             "Authorization" : "Bearer " + accessToken
         ]
         let alomofireRequest = AlamofireRequest (requestedMethod : .post, requestedUrlType : "get/text/", headers: headers)
         alomofireRequest.requestDataWithHeader {(response) in
-            if response?.success == false {
-                print("responsw with headers: error") // A ТУТ СЛОВАРЬ, А НЕ СТРОКА, ШО БУДЕМ ДЕЛАТЬ?
-            } else {
+            if response?.success == true {
                 self.countCharacter(text: (response?.data)!)
                 self.tableView.reloadData()
             }

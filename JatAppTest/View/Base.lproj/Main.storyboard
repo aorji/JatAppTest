@@ -142,7 +142,7 @@
                                     <action selector="confirmButtonPressed:" destination="fXc-g6-Vly" eventType="touchUpInside" id="JuA-Vn-XWN"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Error message" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hXL-7W-uYG">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Error message" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXL-7W-uYG">
                                 <rect key="frame" x="16" y="95" width="343" height="33"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
@@ -238,7 +238,7 @@
                                     <action selector="confirmButtonPressed:" destination="OYq-ha-tMt" eventType="touchUpInside" id="hTs-a8-KGX"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Error message" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hd6-za-WPz">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Error message" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hd6-za-WPz">
                                 <rect key="frame" x="16" y="95" width="343" height="33"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
